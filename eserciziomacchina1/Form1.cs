@@ -12,14 +12,44 @@ namespace eserciziomacchina1
 {
     public partial class Form1 : Form
     {
+        auto auto;
+
         public Form1()
         {
             InitializeComponent();
+            auto=new auto();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            auto.AccendiMotore();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            auto.Spegnimento();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            double valore = Double.Parse(textBox1.Text);
+            auto.Accelerazione(valore);
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            double valore =Double.Parse(textBox1.Text);
+            auto.Decelerazione(valore);
         }
     }
 }
