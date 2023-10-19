@@ -9,63 +9,67 @@ namespace eserciziomacchina1
 {
     public class auto
     {
-        private bool MotoreAcceso;
-        private double velocità;
-        private int marcia;
+        private bool _motoreAcceso;
+        private double _velocita;
+        private int _marcia;
+
+        public double Velocita
+        {
+            get { return _velocita; }
+            set { _velocita = value; }
+        }
+
+        public int Marcia
+        {
+            get { return _marcia; }
+            set { _marcia=value; }
+        }
 
         public auto()
         {
-            MotoreAcceso = false;
-            velocità = 0;
-            marcia = 0; 
+            _motoreAcceso = false;
+            _velocita = 0;
+            _marcia = 0; 
         }
 
         public void AccendiMotore()
         {
-            MotoreAcceso = true;
-            MessageBox.Show("motore acceso");
+            _motoreAcceso = true;
+           
         }
         public void Spegnimento()
         {
-            MotoreAcceso = false;
-            velocità= 0;
-            marcia = 0; 
-            MessageBox.Show("motore spento");
+            _motoreAcceso = false;
+            _velocita= 0;
+            _marcia = 0; 
+            
         }
 
         public void Accelerazione(double valore)
         {
-            if (MotoreAcceso)
+            if (_motoreAcceso)
             {
-                velocità += valore;
-                MessageBox.Show($"Velocità aumentata a {velocità} km/h");
+                _velocita += valore;
+
             }
-            else
-            {
-                MessageBox.Show("Il motore è spento. Impossibile accelerare");
-            }
+
         }
 
         public void Decelerazione(double valore)
         {
-            if (MotoreAcceso)
+            if (_motoreAcceso)
             {
-                if (velocità - valore >= 0)
+                if (_velocita - valore >= 0)
                 {
-                    velocità-= valore;
-                    MessageBox.Show($"Velocità ridotta a {velocità} km/h");
-
+                    _velocita -= valore;
                 }
                 else
                 {
-                    velocità = 0;
-                    MessageBox.Show("La velocità è già a 0 km/h");
+                    _velocita = 0;
+                    
                 }
             }
-            else
-            {
-                MessageBox.Show("Il motore è spento impossibile decelerare");
-            }
+
         }
             
 

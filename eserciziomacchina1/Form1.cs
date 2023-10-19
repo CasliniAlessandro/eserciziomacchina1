@@ -28,17 +28,30 @@ namespace eserciziomacchina1
         private void button1_Click(object sender, EventArgs e)
         {
             auto.AccendiMotore();
+            listView1.Items.Add("Motore acceso");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             auto.Spegnimento();
+            listView1.Items.Add("Motore spento");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            double valore = Double.Parse(textBox1.Text);
-            auto.Accelerazione(valore);
+            double velocità = Double.Parse(textBox1.Text);
+            if (velocità>1)
+            {
+                
+                auto.Accelerazione(velocità);
+                listView1.Items.Add($"Velocità aumentata a {auto.Velocita}km/h");
+            }
+            else
+            {
+                auto.Spegnimento();
+                listView1.Items.Add("Motore spento");
+            }
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,8 +61,18 @@ namespace eserciziomacchina1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            double valore =Double.Parse(textBox1.Text);
-            auto.Decelerazione(valore);
+            double velocità = double.Parse(textBox2.Text);
+            if (velocità>1)
+            {
+                auto.Decelerazione(velocità);
+                listView1.Items.Add($"Velocità ridotta a {auto.Velocita}km/h");
+            }
+            else
+            {
+                auto.Spegnimento();
+                listView1.Items.Add("Motore spento");
+            }
+
         }
     }
 }
